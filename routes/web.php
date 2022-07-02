@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,9 @@ Route::middleware([
 });
 
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+//Rotas de Gerenciamento de Usuários
+Route::prefix('users')->group(function(){
+    Route::get('/view', [UserController::class, 'userView'])->name('user.view');
+    Route::get('/add', [UserController::class, 'userAdd'])->name('user.add');
+});
