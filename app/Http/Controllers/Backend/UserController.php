@@ -21,12 +21,63 @@ class UserController extends Controller
           return view('backend.user.add_user');
     }
     
-    public function create(Request $request)
+    public function userStore(Request $request)
     {
-        $user = new User();
-        $user = $request->all();
+        $validateData = $request->validate([
+            'email' => 'required|unique:users',
+            'name' => 'required'
+        ]);
+        
+
+        $data = new User();
+        $data->usertype = $request->usertype;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->password = bcrypt($request->password);
+        $data->save();
+
+        $notification = [
+            'message' => "Usuário cadastrado com sucesso!",
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('user.view')->with($notification);  
+    }
+
+    public function userEdit($id)
+    {
+        $user = User::findOrFail($id);  
+        return view('backend.user.edit_user', compact('user'));
+    }
+
+    public function userUpdate(Request $request, $id)
+    {
+               
+        $user = User::findOrFail($id);
+        $user->usertype = $request->usertype;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
         $user->save();
 
-        return redirect()->back();  
+        $notification = [
+            'message' => "Usuário atualizado com sucesso!",
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('user.view')->with($notification);  
     }
+
+    public function userDestroy($id)
+    {
+               
+        $user = User::findOrFail($id)->delete();
+        $notification = [
+            'message' => "Usuário Removido com sucesso!",
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('user.view')->with($notification); 
+    }
+
 }

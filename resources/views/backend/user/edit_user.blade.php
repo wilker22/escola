@@ -9,15 +9,16 @@
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Cadastrar Usuário</h4>
+                        <h4 class="box-title">Editar Usuário</h4>
                         
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form method="POST" action="{{ route('user.store') }}">
+                                <form method="POST" action="{{ route('user.update', $user->id) }}">
                                     @csrf
+                                   
 
                                     <div class="row">
 
@@ -30,8 +31,8 @@
                                                             <select name="usertype" id="select" required
                                                                 class="form-control">
                                                                 <option value="" selected="" disabled="">Selecione um perfil...</option>
-                                                                <option value="Admin">Admin</option>
-                                                                <option value="User">User</option>
+                                                                <option value="Admin" {{ $user->usertype = "Admin" ? "selected" : "" }}>Admin</option>
+                                                                <option value="User" {{ $user->usertype = "User" ? "selected" : "" }}>User</option>
                                                                
                                                             </select>
                                                         </div>
@@ -42,7 +43,7 @@
                                                     <div class="form-group">
                                                         <h5>Nome do Usuário<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="name" class="form-control"
+                                                            <input type="text" name="name"  value="{{ $user->name }}" class="form-control"
                                                                 required="">
                                                         </div>
                                                        
@@ -57,7 +58,7 @@
                                                     <div class="form-group">
                                                         <h5>E-mail do Usuário<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="email" name="email" class="form-control"
+                                                            <input type="email" name="email" value="{{ $user->email }}" class="form-control"
                                                                 required="">
                                                         </div>
                                                        
@@ -66,14 +67,7 @@
                                             
 
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Senha<span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="password" name="password" class="form-control"
-                                                                required="">
-                                                        </div>
-                                                       
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                             <!--end row-->
@@ -83,7 +77,7 @@
                                     </div>
 
                                     <div class="text-xs-right">
-                                        <input type="submit" value="Cadastrar" class="btn btn-rounded btn-info mb-5">
+                                        <input type="submit" value="Atualizar" class="btn btn-rounded btn-info mb-5">
                                     </div>
                                 </form>
 
