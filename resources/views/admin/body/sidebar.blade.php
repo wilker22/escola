@@ -71,7 +71,8 @@
             <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Anos</a></li> 
             <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Áreas de Conhecimento</a></li>            
             <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Turnos</a></li>            
-            <li><a href="{{ route('fee.cat.view') }}"><i class="ti-more"></i>Taxas - Categorias</a></li>            
+            <li><a href="{{ route('fee.cat.view') }}"><i class="ti-more"></i>Taxas - Categorias</a></li>   
+            <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Preços</a></li>            
             
           </ul>
         </li>
