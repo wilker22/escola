@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,5 +49,19 @@ Route::prefix('profile')->group(function(){
     Route::get('/edit/', [ProfileController::class, 'profileEdit'])->name('profile.edit');
     Route::post('/store/', [ProfileController::class, 'profileStore'])->name('profile.store');
     Route::get('/password/view', [ProfileController::class, 'passwordView'])->name('password.view');
+    Route::post('/password/update', [ProfileController::class, 'passwordUpdate'])->name('password.update');
+
+});
+
+//route setups
+Route::prefix('setups')->group(function(){
+    //Student class routes
+    Route::get('/student/class/view', [StudentClassController::class, 'viewStudent'])->name('student.class.view');
+    Route::get('/student/class/add', [StudentClassController::class, 'studentClassAdd'])->name('student.class.add');
+    Route::post('/student/class/store', [StudentClassController::class, 'studentClassStore'])->name('student.class.store');
+    Route::get('/student/class/edit/{id}', [StudentClassController::class, 'studentClassEdit'])->name('student.class.edit');
+    Route::post('/student/class/update/{id}', [StudentClassController::class, 'studentClassUpdate'])->name('student.class.update');
+    Route::get('/student/class/delete/{id}', [StudentClassController::class, 'studentClassDelete'])->name('student.class.delete');
+    
 
 });

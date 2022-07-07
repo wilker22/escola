@@ -16,7 +16,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form method="POST" action="{{ route('user.store') }}">
+                                <form method="POST" action="{{ route('password.update') }}">
                                     @csrf
 
                                     <div class="row">
@@ -28,8 +28,8 @@
                                                     <div class="form-group">
                                                         <h5>Senha Atual<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="password" name="oldpassword" id="current_password" class="form-control"
-                                                                required="">
+                                                            <input type="password" name="oldpassword" id="current_password" class="form-control">
+                                                                
                                                             @error('oldpassword')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
@@ -43,8 +43,8 @@
                                                     <div class="form-group">
                                                         <h5>Nova Senha<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="password" name="password" id="passord" class="form-control"
-                                                                required="">
+                                                            <input type="password" name="password" id="passord" class="form-control">
+                                                                
                                                                 @error('password')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
@@ -59,8 +59,8 @@
                                                     <div class="form-group">
                                                         <h5>Confirmar Senha<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
-                                                                required="">
+                                                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                                                                
                                                                 @error('password_confirmation')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
