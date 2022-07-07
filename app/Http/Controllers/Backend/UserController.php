@@ -80,4 +80,6 @@ class UserController extends Controller
         return redirect()->route('user.view')->with($notification); 
     }
 
+    
+
 }

@@ -45,6 +45,8 @@ Route::prefix('users')->group(function(){
 //user profile and change password
 Route::prefix('profile')->group(function(){
     Route::get('/view', [ProfileController::class, 'profileView'])->name('profile.view');
-    Route::get('/edit/{id}', [ProfileController::class, 'profileEdit'])->name('profile.edit');
+    Route::get('/edit/', [ProfileController::class, 'profileEdit'])->name('profile.edit');
+    Route::post('/store/', [ProfileController::class, 'profileStore'])->name('profile.store');
+    Route::get('/password/view', [ProfileController::class, 'passwordView'])->name('password.view');
 
 });
