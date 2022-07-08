@@ -74,6 +74,7 @@
             <li><a href="{{ route('fee.cat.view') }}"><i class="ti-more"></i>Taxas - Categorias</a></li>   
             <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Valores R$</a></li>            
             <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exames(Provas) - Tipos</a></li>    
+            <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Disciplinas</a></li>    
             
           </ul>
         </li>
