@@ -72,7 +72,8 @@
             <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Áreas de Conhecimento</a></li>            
             <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Turnos</a></li>            
             <li><a href="{{ route('fee.cat.view') }}"><i class="ti-more"></i>Taxas - Categorias</a></li>   
-            <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Preços</a></li>            
+            <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Valores R$</a></li>            
+            <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exames(Provas) - Tipos</a></li>    
             
           </ul>
         </li>
