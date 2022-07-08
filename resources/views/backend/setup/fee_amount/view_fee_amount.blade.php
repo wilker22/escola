@@ -25,7 +25,7 @@
                       <thead>
                           <tr>
                               <th>SL</th>
-                              <th>Categoria de Taxa</th>
+                              <th>Categoria da Taxa</th>
                               <th>Ações</th>
                               
                           </tr>
@@ -34,10 +34,10 @@
                         @foreach ($amounts as $key => $amount )
                           <tr>
                               <td style="width: 5%">{{ $key+1 }}</td>
-                              <td>{{$amount->fee_category_id}}</td>
+                              <td>{{ $amount['fee_category']['name'] }}</td>
                               <td style="width: 25%">
-                                 <a href="{{ route('fee.cat.edit', $amount->id)}}" class="btn btn-info">Editar</a>
-                                 <a href="{{ route('fee.cat.delete', $amount->id) }}" class="btn btn-danger" id="delete">Remover</a>
+                                 <a href="{{ route('fee.amount.edit', $amount->fee_category_id) }}" class="btn btn-info">Editar</a>
+                                 <a href="" class="btn btn-danger" id="delete">Remover</a>
                                </td>
                           </tr>
                         @endforeach                          

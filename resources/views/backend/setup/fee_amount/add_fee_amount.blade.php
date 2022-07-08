@@ -34,7 +34,7 @@
                                                                 class="form-control">
                                                                 <option value="" selected="" disabled="">
                                                                     Selecione...</option>
-                                                                @foreach ($feeCategories as $category)
+                                                                @foreach ($data as $category)
                                                                     <option value="{{ $category->id }}">
                                                                         {{ $category->name }}</option>
                                                                 @endforeach
