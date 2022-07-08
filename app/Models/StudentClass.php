@@ -10,4 +10,9 @@ class StudentClass extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function feeCategoryAmount()
+    {
+        return $this->hasMany(FeeCategoryAmount::class);
+    }
 }

@@ -15,30 +15,30 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">Lista de Valores de Taxas</h3>
+                <h3 class="box-title">Detalhes de Valores de Taxas</h3>
                 <a href="{{ route('fee.amount.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Cadastrar Valor de Taxa</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
+                <h4><strong>Taxa - Categoria : </strong>{{ $detailsData['0']['fee_category']['name'] }} </h4>	
                   <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
-                      <thead>
+                    <table class="table table-bordered table-striped">
+                      <thead class="thead-light">
                           <tr>
                               <th>SL</th>
-                              <th>Categoria da Taxa</th>
-                              <th>Ações</th>
+                              <th>Turma</th>
+                              <th width="25%">Valor R$</th>
+                             
                               
                           </tr>
                       </thead>
                       <tbody>
-                        @foreach ($amounts as $key => $amount )
+                        @foreach ($detailsData as $key => $detail )
                           <tr>
                               <td style="width: 5%">{{ $key+1 }}</td>
-                              <td>{{ $amount['fee_category']['name'] }}</td>
-                              <td style="width: 25%">
-                                 <a href="{{ route('fee.amount.edit', $amount->fee_category_id) }}" class="btn btn-info">Editar</a>
-                                 <a href="{{ route('fee.amount.details', $amount->fee_category_id) }}" class="btn btn-warning">Detalhes</a>
-                               </td>
+                              <td>{{ $detail['student_class']['name'] }}</td>
+                              <td>{{ $detail->amount }}</td>
+                             
                           </tr>
                         @endforeach                          
                       </tbody>

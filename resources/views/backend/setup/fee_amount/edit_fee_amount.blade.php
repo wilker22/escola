@@ -12,7 +12,7 @@
 		 <!-- Basic Forms -->
 		  <div class="box">
 			<div class="box-header with-border">
-			  <h4 class="box-title">Edit Fee Amount</h4>
+			  <h4 class="box-title">Editar Valores de Taxas</h4>
 			  
 			</div>
 			<!-- /.box-header -->
@@ -29,10 +29,10 @@
 						 
 
  	<div class="form-group">
-	<h5>Fee Category<span class="text-danger">*</span></h5>
+	<h5>Taxa - Categoria<span class="text-danger">*</span></h5>
 	<div class="controls">
 	 <select name="fee_category_id" required="" class="form-control">
-		<option value="" selected="" disabled="">Select Fee Category</option>
+		<option value="" selected="" disabled="">Selecione...</option>
 		@foreach($fee_categories as $category)
 		<option value="{{ $category->id }}" {{ ($editData['0']->fee_category_id == $category->id)? "selected":"" }}>{{ $category->name }}</option>
 		@endforeach	 
@@ -47,10 +47,10 @@
      	<div class="col-md-5">
 
    <div class="form-group">
-	<h5>Student Class <span class="text-danger">*</span></h5>
+	<h5>Turma<span class="text-danger">*</span></h5>
 	<div class="controls">
 	 <select name="class_id[]" required="" class="form-control">
-		<option value="" selected="" disabled="">Select Fee Category</option>
+		<option value="" selected="" disabled="">Selecione...</option>
 		@foreach($classes as $class)
 		<option value="{{ $class->id }}" {{ ($edit->class_id == $class->id)? "selected": ""  }}  >{{ $class->name }}</option>
 		@endforeach	 
@@ -64,7 +64,7 @@
      	<div class="col-md-5">
      		
       <div class="form-group">
-		<h5>Amount <span class="text-danger">*</span></h5>
+		<h5>Valor R$ <span class="text-danger">*</span></h5>
 		<div class="controls">
 	 <input type="text" name="amount[]" value="{{ $edit->amount }}" class="form-control" > 
 	  </div>		 
@@ -85,7 +85,7 @@
  </div>	<!-- // End add_item -->
 							 
 		 	<div class="text-xs-right">
-  <input type="submit" class="btn btn-rounded btn-info mb-5" value="Update">
+  <input type="submit" class="btn btn-rounded btn-info mb-5" value="Atualizar">
 						</div>
 					</form>
 
