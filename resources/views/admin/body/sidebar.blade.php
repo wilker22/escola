@@ -76,6 +76,7 @@
             <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exames(Provas) - Tipos</a></li>    
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Disciplinas</a></li>    
             <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Atribuir Notas às Disciplinas</a></li>    
+            <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Funções</a></li>    
             
           </ul>
         </li>
