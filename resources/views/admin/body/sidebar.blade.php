@@ -33,7 +33,7 @@
 		
         <li class="treeview {{ $prefix == '/users' ? 'active' : '' }}">
           <a href="#">
-            <i data-feather="message-circle"></i>
+            <i data-feather="user"></i>
             <span>Gerenciar Usuários</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -47,7 +47,7 @@
 		  
         <li class="treeview {{ $prefix == '/profile' ? 'active' : '' }}">
           <a href="#">
-            <i data-feather="mail"></i> <span>Gerenciar Perfil</span>
+            <i data-feather="info"></i> <span>Gerenciar Perfil</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -61,7 +61,7 @@
 
         <li class="treeview {{ $prefix == '/setups' ? 'active' : '' }}">
           <a href="#">
-            <i data-feather="mail"></i> <span>Configurações</span>
+            <i data-feather="settings"></i> <span>Configurações</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -75,6 +75,7 @@
             <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Valores R$</a></li>            
             <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exames(Provas) - Tipos</a></li>    
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Disciplinas</a></li>    
+            <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Atribuir Notas às Disciplinas</a></li>    
             
           </ul>
         </li>

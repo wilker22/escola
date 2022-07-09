@@ -39,9 +39,9 @@
                                                     <td> {{ $exam->name }}</td>
                                                     <td>
                                                         <a href="{{ route('exam.type.edit', $exam->id) }}"
-                                                            class="btn btn-info">Edit</a>
+                                                            class="btn btn-info">Editar</a>
                                                         <a href="{{ route('exam.type.delete', $exam->id) }}"
-                                                            class="btn btn-danger" id="delete">Delete</a>
+                                                            class="btn btn-danger" id="delete">Remover</a>
 
                                                     </td>
 

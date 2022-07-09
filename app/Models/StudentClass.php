@@ -15,4 +15,9 @@ class StudentClass extends Model
     {
         return $this->hasMany(FeeCategoryAmount::class);
     }
+
+    public function assign_subject()
+    {
+        return $this->hasMany(AssignSubject::class);
+    }
 }

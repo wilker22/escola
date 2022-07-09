@@ -34,7 +34,7 @@
                                                                 class="form-control">
                                                                 <option value="" selected="" disabled="">
                                                                     Selecione...</option>
-                                                                @foreach ($data as $category)
+                                                                @foreach ($feeCategories as $category)
                                                                     <option value="{{ $category->id }}">
                                                                         {{ $category->name }}</option>
                                                                 @endforeach
@@ -141,8 +141,8 @@
            </div><!-- End col-md-5 -->
   
            <div class="col-md-2" style="padding-top: 25px;">
-   <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> </span>
-    <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i> </span>    		
+                <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i> </span>
+                <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i> </span>    		
            </div><!-- End col-md-2 -->
            
   
