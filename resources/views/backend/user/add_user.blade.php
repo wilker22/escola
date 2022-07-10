@@ -27,11 +27,11 @@
                                                     <div class="form-group">
                                                         <h5>Perfil do Usuário <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="usertype" id="select" required
+                                                            <select name="role" id="role" required
                                                                 class="form-control">
                                                                 <option value="" selected="" disabled="">Selecione um perfil...</option>
                                                                 <option value="Admin">Admin</option>
-                                                                <option value="User">User</option>
+                                                                <option value="Operador">Operador</option>
                                                                
                                                             </select>
                                                         </div>
@@ -63,18 +63,7 @@
                                                        
                                                     </div>
                                                 </div>
-                                            
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Senha<span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="password" name="password" class="form-control"
-                                                                required="">
-                                                        </div>
-                                                       
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                             <!--end row-->
 

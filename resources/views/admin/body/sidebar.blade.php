@@ -30,20 +30,22 @@
 			<span>Dashboard</span>
           </a>
         </li>  
-		
-        <li class="treeview {{ $prefix == '/users' ? 'active' : '' }}">
-          <a href="#">
-            <i data-feather="user"></i>
-            <span>Gerenciar Usuários</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('user.view') }}"><i class="ti-more"></i>Lista de Usuários</a></li>
-            <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Cadastrar Usuários</a></li>
-          </ul>
-        </li> 
+        
+        @if(Auth::user()->role == 'Admin')
+          <li class="treeview {{ $prefix == '/users' ? 'active' : '' }}">
+            <a href="#">
+              <i data-feather="user"></i>
+              <span>Gerenciar Usuários</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('user.view') }}"><i class="ti-more"></i>Lista de Usuários</a></li>
+              <li><a href="{{ route('user.add') }}"><i class="ti-more"></i>Cadastrar Usuários</a></li>
+            </ul>
+          </li>
+        @endif
 		  
         <li class="treeview {{ $prefix == '/profile' ? 'active' : '' }}">
           <a href="#">
@@ -77,6 +79,21 @@
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Disciplinas</a></li>    
             <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Atribuir Notas às Disciplinas</a></li>    
             <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Funções</a></li>    
+            
+          </ul>
+        </li>
+
+        <li class="treeview {{ $prefix == '/students' ? 'active' : '' }}">
+          <a href="#">
+            <i data-feather="user-check"></i> <span>Gerenciamento de Alunos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Cadastro de Alunos</a></li>
+            <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Cadastro de Alunos</a></li>
+                
             
           </ul>
         </li>

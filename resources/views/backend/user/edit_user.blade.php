@@ -28,11 +28,11 @@
                                                     <div class="form-group">
                                                         <h5>Perfil do Usuário <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="usertype" id="select" required
+                                                            <select name="role" id="select" required
                                                                 class="form-control">
                                                                 <option value="" selected="" disabled="">Selecione um perfil...</option>
-                                                                <option value="Admin" {{ $user->usertype = "Admin" ? "selected" : "" }}>Admin</option>
-                                                                <option value="User" {{ $user->usertype = "User" ? "selected" : "" }}>User</option>
+                                                                <option value="Admin" {{ $user->role = "Admin" ? "selected" : "" }}>Admin</option>
+                                                                <option value="Operador" {{ $user->role = "Operador" ? "selected" : "" }}>Operador</option>
                                                                
                                                             </select>
                                                         </div>

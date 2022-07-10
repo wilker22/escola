@@ -10,8 +10,8 @@ class UserController extends Controller
 {
     public function userView()
     {
-        $data['allData'] = User::all();
-
+        $data['allData'] = User::where('usertype','Admin')->get();
+        //dd($data);
         return view('backend.user.view_user', $data);
     }
 
@@ -30,14 +30,17 @@ class UserController extends Controller
         
 
         $data = new User();
-        $data->usertype = $request->usertype;
+        $code = rand(000000,999999);
+        $data->usertype = 'Admin';
+        $data->role = $request->role;
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = bcrypt($request->password);
+        $data->password = bcrypt($code);
+        $data->code = $code;
         $data->save();
 
         $notification = [
-            'message' => "Usuário cadastrado com sucesso!",
+            'message' => "Dados cadastrados com sucesso!",
             'alert-type' => 'success'
         ];
 
@@ -54,9 +57,9 @@ class UserController extends Controller
     {
                
         $user = User::findOrFail($id);
-        $user->usertype = $request->usertype;
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->role = $request->role;
         
         $user->save();
 

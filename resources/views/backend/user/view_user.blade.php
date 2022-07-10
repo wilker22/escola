@@ -28,6 +28,7 @@
                               <th>Perfil</th>
                               <th>Nome</th>
                               <th>E-mail</th>
+                              <th>Matrícula</th>
                               <th>Ações</th>
                               
                           </tr>
@@ -36,9 +37,10 @@
                         @foreach ($allData as $key => $user )
                           <tr>
                               <td style="width: 5%">{{ $key+1 }}</td>
-                              <td>{{ $user->usertype}}</td>
-                              <td>{{$user->name}}</td>
-                              <td>{{$user->email}}</td>
+                              <td>{{ $user->role}}</td>
+                              <td>{{ $user->name }}</td>
+                              <td>{{ $user->email }}</td>
+                              <td>{{ $user->code }}</td>
                               <td style="width: 25%">
                                  <a href="{{ route('user.edit', $user->id)}}" class="btn btn-info">Editar</a>
                                  <a href="{{ route('user.delete', $user->id) }}" class="btn btn-danger" id="delete">Remover</a>
