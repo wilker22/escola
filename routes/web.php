@@ -147,12 +147,12 @@ Route::prefix('setups')->group(function(){
 
 });
 
-//Student Management routes
+//Student Registration routes
 Route::prefix('student')->group(function(){
     Route::get('/reg/view', [StudentRegController::class, 'studentRegView'])->name('student.registration.view');
-    Route::get('/reg/edit/', [StudentRegController::class, 'profileEdit'])->name('student.registration.edit');
-    Route::post('/reg/store/', [StudentRegController::class, 'profileStore'])->name('student.registration.store');
-    Route::get('/password/view', [StudentRegController::class, 'passwordView'])->name('password.view');
-    Route::post('/password/update', [StudentRegController::class, 'passwordUpdate'])->name('password.update');
+    Route::get('/reg/add', [StudentRegController::class, 'studentRegAdd'])->name('student.registration.add');
+    Route::get('/reg/edit/', [StudentRegController::class, 'studentRegEdit'])->name('student.registration.edit');
+    Route::post('/reg/store/', [StudentRegController::class, 'studentRegStore'])->name('student.registration.store');
+    Route::post('/password/update', [StudentRegController::class, 'studentRegUpdate'])->name('password.update');
 
 });

@@ -9,7 +9,7 @@
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Cadastrar Área de Conhecimento</h4>
+                        <h4 class="box-title">Cadastrar Curso</h4>
                         
                     </div>
                     <!-- /.box-header -->
@@ -26,7 +26,7 @@
                                                 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <h5>Área<span class="text-danger">*</span></h5>
+                                                        <h5>Curso<span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <input type="text" name="name" class="form-control">
                                                                 

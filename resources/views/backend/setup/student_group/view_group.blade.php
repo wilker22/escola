@@ -15,7 +15,7 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">Lista de Áreas</h3>
+                <h3 class="box-title">Lista de Cursos</h3>
                 <a href="{{ route('student.group.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Cadastrar Área de Conhecimento</a>
               </div>
               <!-- /.box-header -->
@@ -25,7 +25,7 @@
                       <thead>
                           <tr>
                               <th>SL</th>
-                              <th>Área de Conhecimento</th>
+                              <th>Curso</th>
                               <th>Ações</th>
                               
                           </tr>

@@ -9,7 +9,7 @@
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Editar Área de Conhecimento</h4>
+                        <h4 class="box-title">Editar Curso</h4>
                         
                     </div>
                     <!-- /.box-header -->
