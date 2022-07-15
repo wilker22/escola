@@ -27,6 +27,18 @@ class StudentRegController extends Controller
         return view('backend.student.student_reg.student_view', $data);
     }
 
+    public function studentYearClassWise(Request$request)
+    {
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+        $data['year_id'] = $request->year_id;
+        $data['class_id'] = $request->class_id;
+        //dd($data['year_id']);
+        $data['allData'] = AssignStudent::where('year_id',$request->year_id)->where('class_id',$request->class_id)->get();    
+        //dd($data['allData']); 
+        return view('backend.student.student_reg.student_view', $data);
+    }
+
     public function studentRegAdd()
     {
         $data['years'] = StudentYear::all();
@@ -107,5 +119,22 @@ class StudentRegController extends Controller
         ];
 
         return redirect()->route('student.registration.view')->with($notification);
+    }
+
+
+    public function studentRegEdit(Request $request, $student_id)
+    {
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+        $data['groups'] = StudentGroup::all();
+        $data['shifts'] = StudentShift::all();
+        $data['editData'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
+     //   dd($data['editData'])->toArray();
+        return view('backend.student.student_reg.student_edit', $data);
+    }
+
+    public function studentRegUpdate(Request $request, $id)
+    {
+        
     }
 }

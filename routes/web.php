@@ -151,8 +151,9 @@ Route::prefix('setups')->group(function(){
 Route::prefix('student')->group(function(){
     Route::get('/reg/view', [StudentRegController::class, 'studentRegView'])->name('student.registration.view');
     Route::get('/reg/add', [StudentRegController::class, 'studentRegAdd'])->name('student.registration.add');
-    Route::get('/reg/edit/', [StudentRegController::class, 'studentRegEdit'])->name('student.registration.edit');
+    Route::get('/reg/edit/{id}', [StudentRegController::class, 'studentRegEdit'])->name('student.registration.edit');
+    Route::get('/year/class/wise', [StudentRegController::class, 'studentYearClassWise'])->name('student.year.class.wise');
     Route::post('/reg/store/', [StudentRegController::class, 'studentRegStore'])->name('student.registration.store');
-    Route::post('/password/update', [StudentRegController::class, 'studentRegUpdate'])->name('password.update');
+    Route::post('/reg/update/{id}', [StudentRegController::class, 'studentRegUpdate'])->name('student.registration.update');
 
 });
