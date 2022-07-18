@@ -151,9 +151,12 @@ Route::prefix('setups')->group(function(){
 Route::prefix('student')->group(function(){
     Route::get('/reg/view', [StudentRegController::class, 'studentRegView'])->name('student.registration.view');
     Route::get('/reg/add', [StudentRegController::class, 'studentRegAdd'])->name('student.registration.add');
-    Route::get('/reg/edit/{id}', [StudentRegController::class, 'studentRegEdit'])->name('student.registration.edit');
+    Route::get('/reg/edit/{student_id}', [StudentRegController::class, 'studentRegEdit'])->name('student.registration.edit');
     Route::get('/year/class/wise', [StudentRegController::class, 'studentYearClassWise'])->name('student.year.class.wise');
     Route::post('/reg/store/', [StudentRegController::class, 'studentRegStore'])->name('student.registration.store');
-    Route::post('/reg/update/{id}', [StudentRegController::class, 'studentRegUpdate'])->name('student.registration.update');
+    Route::post('/reg/update/{student_id}', [StudentRegController::class, 'studentRegUpdate'])->name('student.registration.update');
+    Route::get('/reg/promotion/{student_id}', [StudentRegController::class, 'studentRegPromotion'])->name('student.registration.promotion');
+    Route::post('/reg/update/promotion/{student_id}', [StudentRegController::class, 'studentRegUpdatePromotion'])->name('student.registration.update.promotion');
+    Route::get('/reg/details/{student_id}', [StudentRegController::class, 'studentRegDetails'])->name('student.registration.details');
 
 });
