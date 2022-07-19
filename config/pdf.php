@@ -3,7 +3,7 @@
 return [
 	'mode'                  => 'utf-8',
 	'format'                => 'A4',
-	'author'                => '',
+	'author'                => 'WTech',
 	'subject'               => '',
 	'keywords'              => '',
 	'creator'               => 'Laravel Pdf',
