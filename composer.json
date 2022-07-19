@@ -12,7 +12,9 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
-        "niklasravnsborg/laravel-pdf": "^4.1"
+        "mpdf/mpdf": "v8.0.17",
+        "niklasravnsborg/laravel-pdf": "^4.1",
+        "psr/log": "v2.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
