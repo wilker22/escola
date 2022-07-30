@@ -92,7 +92,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Cadastro de Alunos</a></li>
-            <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Cadastro de Alunos</a></li>
+            <li><a href="{{ route('student.generate.roll') }}"><i class="ti-more"></i>Gerar Lista de Alunos</a></li>
                 
             
           </ul>
