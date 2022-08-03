@@ -160,8 +160,10 @@ Route::prefix('student')->group(function(){
     Route::post('/reg/update/promotion/{student_id}', [StudentRegController::class, 'studentRegUpdatePromotion'])->name('student.registration.update.promotion');
     Route::get('/reg/details/{student_id}', [StudentRegController::class, 'studentRegDetails'])->name('student.registration.details');
     //student generate roll
-    Route::get('/roll/generte/view', [StudentRollController::class, 'studentRollView'])->name('student.generate.roll');
+    Route::get('/roll/generate/view', [StudentRollController::class, 'studentRollView'])->name('student.generate.roll');
     Route::get('/reg/getstudents', [StudentRollController::class, 'getStudents'])->name('student.registration.getstudents');
+    Route::get('/roll/generate/store', [StudentRollController::class, 'studentsRollStore'])->name('roll.generate.store');
+
     
 
 });

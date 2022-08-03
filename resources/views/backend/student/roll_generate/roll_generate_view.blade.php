@@ -16,7 +16,7 @@
                                 <h4 class="box-title">Aluno - <strong> Gerar Lista</strong></h4>
                             </div>
                             <div class="box-body">
-                                <form method="GET" action="{{ route('student.year.class.wise') }}">
+                                <form method="POST" action="{{ route('roll.generate.store') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-4">
