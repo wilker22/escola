@@ -8,6 +8,7 @@ use App\Models\FeeCategoryAmount;
 use App\Models\StudentClass;
 use App\Models\StudentYear;
 use Illuminate\Http\Request;
+use PDF;
 
 class RegistrationFeeController extends Controller
 {
@@ -64,8 +65,19 @@ class RegistrationFeeController extends Controller
 
    }// end method 
 
-   public function regFeePayslip()
+   public function regFeePayslip(Request $request)
    {
+    $student_id = $request->student_id;
+    $class_id = $request->class_id;
+
+    $allStudent['details'] = AssignStudent::with(['student', 'discount'])
+                                          ->where('student_id', $student_id)
+                                          ->where('class_id', $class_id)->first();
+    
+    $pdf = PDF::loadView('backend.student.registration_fee.registration_fee_pdf', $allStudent);
+    $pdf->setProtection(['copy', 'print'], '', 'pass');
+
+    return $pdf->stream('document.pdf');
 
    }
 
