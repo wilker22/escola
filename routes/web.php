@@ -174,8 +174,13 @@ Route::prefix('student')->group(function(){
 
     //Monthly Fee routes
     Route::get('/monthly/fee/view', [MonthlyFeeController::class, 'monthlyFeeView'])->name('monthly.fee.view');
-    Route::get('/monthly/fee/classwisedata', [MonthlyFeeController::class, 'monthlyFeeClassData'])->name('student.registration.fee.classwise.get');
+    Route::get('/monthly/fee/classwisedata', [MonthlyFeeController::class, 'monthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
     Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'monthlyFeePayslip'])->name('student.monthly.fee.payslip');
+
+    //Exam Fee routes
+    Route::get('/exam/fee/view', [ExamFeeController::class, 'examFeeView'])->name('exam.fee.view');
+    Route::get('/exam/fee/classwisedata', [ExamFeeController::class, 'examFeeClassData'])->name('student.exam.fee.classwise.get');
+    Route::get('/exam/fee/payslip', [ExamFeeController::class, 'examFeePayslip'])->name('student.exam.fee.payslip');
     
 
     
