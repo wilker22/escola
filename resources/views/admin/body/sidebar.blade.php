@@ -93,6 +93,9 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Cadastro de Alunos</a></li>
             <li><a href="{{ route('student.generate.roll') }}"><i class="ti-more"></i>Gerar Lista de Alunos</a></li>
+            <li><a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Taxa de Matrícula</a></li>
+            <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Taxa de Mensalidade</a></li>
+            <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Taxa de Exames(Provas/testes)</a></li>
                 
             
           </ul>

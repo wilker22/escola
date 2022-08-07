@@ -2,6 +2,8 @@
 @section('admin')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Include Handlebars from a CDN -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
 <div class="content-wrapper">
         <div class="container-full">
@@ -13,11 +15,10 @@
                     <div class="col-12">
                         <div class="box bb-3 border-warning">
                             <div class="box-header">
-                                <h4 class="box-title">Aluno - <strong> Gerar Lista</strong></h4>
+                                <h4 class="box-title">Registrar - <strong> TAXA DE MATRÍCULA</strong></h4>
                             </div>
                             <div class="box-body">
-                                <form method="POST" action="{{ route('roll.generate.store') }}">
-                                    @csrf
+                               
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -69,31 +70,31 @@
 
                                     </div><!--  end row -->
 
-                                    <!--//////////////Roll generate Table //////////////////-->
-                                    <div class="row d-none" id="roll-generate">
+                                    <!--//////////////rEGISTRATION FEE Table //////////////////-->
+                                    <div class="row" id="roll-generate">
                                         <div class="col-md-12">
-                                            <table class="table table-bordered table-striped" style="width: 100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID Nº</th>
-                                                        <th>Nome do Aluno</th>
-                                                        <th>Pai</th>
-                                                        <th>Mãe</th>
-                                                        <th>Gênero</th>
-                                                        <th>Lista</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="roll-generate-tr">
-
-                                                </tbody>
-
-                                            </table>
+                                                <div id="DocumentResults">
+                                                    <script id="document-template" type="text/x-handlebars-template">
+                                                        <table class="table table-bordered table-striped" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    @{{ {thsource} }}
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{{ #each this }}
+                                                                    <tr>
+                                                                        @td{{ {#tdsource} }}
+                                                                    </tr>
+                                                                @{{ /each }}
+                                                            </tbody>
+                                                        </table>
+                                                    </script>    
+                                                    
+                                                </div>             
                                         </div>
                                     </div>
 
-                                    <input type="submit" class="btn btn-info" value="Gerador de Lista">
-
-                                </form>
 
                             </div>
                             <!-- /.col -->
@@ -105,41 +106,29 @@
         </div>
     </div>
 
-    // Start Roll Generated ===========
+    ============ Get Registration Fee Method And View Page ===================
 
-    <script type="text/javascript">
-        $(document).on('click', '#search', function() {
-            var year_id = $('#year_id').val();
-            var class_id = $('#class_id').val();
-            $.ajax({
-                url: "{{ route('student.registration.getstudents') }}",
-                type: "GET",
-                data: {
-                    'year_id': year_id,
-                    'class_id': class_id
-                },
-                success: function(data) {
-                    $('#roll-generate').removeClass('d-none');
-                    var html = '';
-                    $.each(data, function(key, v) {
-                        html +=
-                            '<tr>' +
-                            '<td>' + v.student.id_no +
-                            '<input type="hidden" name="student_id[]" value="' + v.student_id +
-                            '"></td>' +
-                            '<td>' + v.student.name + '</td>' +
-                            '<td>' + v.student.fname + '</td>' +
-                            '<td>' + v.student.gender + '</td>' +
-                            '<td><input type="text" class="form-control form-control-sm" name="roll[]" value="' +
-                            v.roll + '"></td>' +
-                            '</tr>';
-                    });
-                    html = $('#roll-generate-tr').html(html);
-                }
-            });
-        });
-    </script>
+<script type="text/javascript">
+  $(document).on('click','#search',function(){
+    var year_id = $('#year_id').val();
+    var class_id = $('#class_id').val();
+     $.ajax({
+      url: "{{ route('student.registration.fee.classwise.get')}}",
+      type: "get",
+      data: {'year_id':year_id,'class_id':class_id},
+      beforeSend: function() {       
+      },
+      success: function (data) {
+        var source = $("#document-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(data);
+        $('#DocumentResults').html(html);
+        $('[data-toggle="tooltip"]').tooltip();
+      }
+    });
+  });
 
-    ============ End Script Roll Generate =================
+</script>
+
 
 @endsection
