@@ -85,13 +85,31 @@
 
         <li class="treeview {{ $prefix == '/students' ? 'active' : '' }}">
           <a href="#">
-            <i data-feather="user-check"></i> <span>Gerenciamento de Alunos</span>
+            <i data-feather="user-check"></i> <span>Gerenciar Alunos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Cadastro de Alunos</a></li>
+            <li><a href="{{ route('student.generate.roll') }}"><i class="ti-more"></i>Gerar Lista de Alunos</a></li>
+            <li><a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Taxa de Matrícula</a></li>
+            <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Taxa de Mensalidade</a></li>
+            <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Taxa de Exames(Provas/testes)</a></li>
+                
+            
+          </ul>
+        </li>
+
+        <li class="treeview {{ $prefix == '/eployees' ? 'active' : '' }}">
+          <a href="#">
+            <i data-feather="user-check"></i> <span>Gerenciar Funcionários</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('employee.view') }}"><i class="ti-more"></i>Cadastrar Funcionários</a></li>
             <li><a href="{{ route('student.generate.roll') }}"><i class="ti-more"></i>Gerar Lista de Alunos</a></li>
             <li><a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Taxa de Matrícula</a></li>
             <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Taxa de Mensalidade</a></li>
