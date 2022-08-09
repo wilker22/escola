@@ -53,7 +53,8 @@
 				            @endif		
                             <td style="width: 25%">
                                 <a href="{{route('edit.employe.registration', $employee->id)}}" class="btn btn-info">Editar</a>
-                                <a href="" class="btn btn-danger" id="delete">Remover</a>
+                                <a target="_blank" href="{{ route('details.employe.registration',$employee->id) }}" class="btn btn-danger">Ficha</a>
+                                
                             </td>
                           </tr>
                         @endforeach                          

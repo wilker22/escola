@@ -8,6 +8,7 @@ use App\Models\EmployeeSallaryLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class EmployeeRegController extends Controller
 {
@@ -124,7 +125,7 @@ class EmployeeRegController extends Controller
 
         if ($request->file('image')) {
             $file = $request->file('image');
-            @unlink(public_path('upload/employee_images/' . $user->image));
+            unlink(public_path('upload/employee_images/' . $user->image));
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/employee_images'), $filename);
             $user['image'] = $filename;
