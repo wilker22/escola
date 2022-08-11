@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
+use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\UserController;
+use App\Models\EmployeeSallaryLog;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -193,5 +195,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('reg/employee/edit/{id}', [EmployeeRegController::class, 'employeeEdit'])->name('edit.employe.registration');
         Route::post('reg/employee/update/{id}', [EmployeeRegController::class, 'employeeUpdate'])->name('update.employee.registration');
         Route::get('reg/employee/details/{id}', [EmployeeRegController::class, 'employeeDetails'])->name('details.employe.registration');
+
+        //Salary
+        Route::get('salary/employee/view', [EmployeeSalaryController::class, 'salaryView'])->name('employee.salary.view');
+        Route::get('salary/employee/increment/{id}', [EmployeeSalaryController::class, 'salaryIncrement'])->name('employee.salary.increment');
+        Route::get('salary/employee/details/{id}', [EmployeeSalaryController::class, 'salaryDetails'])->name('employee.salary.details');
     });
 });
