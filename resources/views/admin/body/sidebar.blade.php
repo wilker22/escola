@@ -111,6 +111,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('employee.view') }}"><i class="ti-more"></i>Cadastrar Funcionários</a></li>
             <li><a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Salário</a></li>
+            <li><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Licensas</a></li>
             
             
           </ul>
