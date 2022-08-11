@@ -1,96 +1,65 @@
 @extends('admin.admin_master')
-
 @section('admin')
     <div class="content-wrapper">
         <div class="container-full">
+            <!-- Content Header (Page header) -->
+
 
             <section class="content">
 
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Incrementar Salário</h4>
-                        
+                        <h4 class="box-title">Salário - Incremento</h4>
+
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form method="POST" action="{{ route('designation.store') }}">
+
+                                <form method="post" action="{{ route('update.increment.store', $editData->id) }}">
                                     @csrf
-
                                     <div class="row">
-
                                         <div class="col-12">
+
+
                                             <div class="row">
                                                 <div class="col-md-6">
+
                                                     <div class="form-group">
-                                                        <h5>Salário<span class="text-danger">*</span></h5>
+                                                        <h5>Salário <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="name" class="form-control">
-                                                                
-                                                            @error('name')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                            <input type="text" name="increment_salary"
+                                                                class="form-control">
                                                         </div>
-                                                       
+
                                                     </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!--end row-->
-                                        </div>
 
 
-                                    </div>
+                                                </div> <!-- // end col md-6 -->
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row">
+
                                                 <div class="col-md-6">
+
                                                     <div class="form-group">
-                                                        <h5>Salário<span class="text-danger">*</span></h5>
+                                                        <h5>Data da Efetivação <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="name" class="form-control">
-                                                                
-                                                            @error('name')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
+                                                            <input type="date" name="effected_salary"
+                                                                class="form-control">
                                                         </div>
-                                                       
+
                                                     </div>
-                                                </div>
+
+                                                </div> <!-- // end col md-6 -->
+
+                                            </div> <!-- // end row -->
+
+
+
+                                            <div class="text-xs-right">
+                                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="Registrar">
                                             </div>
-                                            
-                                            <!--end row-->
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Data da Efetivação<span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="text" name="name" class="form-control">
-                                                                
-                                                            @error('name')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <!--end row-->
-                                        </div>
-
-                                        
-                                    </div>
-
-                                    <div class="text-xs-right">
-                                        <input type="submit" value="Cadastrar" class="btn btn-rounded btn-info mb-5">
-                                    </div>
                                 </form>
 
                             </div>
@@ -103,6 +72,9 @@
                 <!-- /.box -->
 
             </section>
+
+
+
 
 
         </div>
