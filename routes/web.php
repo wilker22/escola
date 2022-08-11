@@ -203,5 +203,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         //Leave
         Route::get('leave/employee/view', [EmployeeLeaveController::class, 'leaveView'])->name('employee.leave.view');
+        Route::get('leave/employee/add', [EmployeeLeaveController::class, 'leaveAdd'])->name('employee.leave.add');
+        
     });
 });
