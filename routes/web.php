@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\ProfileController;
@@ -204,6 +205,7 @@ Route::group(['middleware' => 'auth'], function () {
         //Leave
         Route::get('leave/employee/view', [EmployeeLeaveController::class, 'leaveView'])->name('employee.leave.view');
         Route::get('leave/employee/add', [EmployeeLeaveController::class, 'leaveAdd'])->name('employee.leave.add');
+        Route::get('leave/employee/store', [EmployeeLeaveController::class, 'leaveStore'])->name('employee.leave.store');
         
     });
 });
