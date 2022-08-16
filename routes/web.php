@@ -205,7 +205,10 @@ Route::group(['middleware' => 'auth'], function () {
         //Leave
         Route::get('leave/employee/view', [EmployeeLeaveController::class, 'leaveView'])->name('employee.leave.view');
         Route::get('leave/employee/add', [EmployeeLeaveController::class, 'leaveAdd'])->name('employee.leave.add');
-        Route::get('leave/employee/store', [EmployeeLeaveController::class, 'leaveStore'])->name('employee.leave.store');
+        Route::post('leave/employee/store', [EmployeeLeaveController::class, 'leaveStore'])->name('employee.leave.store');
+        Route::get('leave/employee/edit/{id}', [EmployeeLeaveController::class, 'leaveEdit'])->name('employee.leave.edit');
+        Route::post('leave/employee/update/{id}', [EmployeeLeaveController::class, 'leaveUpdate'])->name('employee.leave.update');
+        Route::get('leave/employee/delete/{id}', [EmployeeLeaveController::class, 'leaveDelete'])->name('employee.leave.delete');
         
     });
 });
