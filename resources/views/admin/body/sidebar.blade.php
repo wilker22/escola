@@ -118,6 +118,21 @@
             
           </ul>
         </li>
+
+        <li class="treeview {{ $prefix == '/marks' ? 'active' : '' }}">
+          <a href="#">
+            <i data-feather="user-check"></i> <span>Gerenciar Notas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('marks.entry.add') }}"><i class="ti-more"></i>Cadastrar Notas</a></li>
+            
+            
+            
+          </ul>
+        </li>
 		
         
 		 

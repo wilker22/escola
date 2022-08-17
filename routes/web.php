@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
@@ -226,4 +227,13 @@ Route::group(['middleware' => 'auth'], function () {
         
         
     });
+
+    //user profile and change password
+    Route::prefix('marks')->group(function () {
+        Route::get('marks/entry/add', [MarksController::class, 'marksAdd'])->name('marks.entry.add');
+       
+    });
+
+    Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getSubject');
+    Route::get('student/marks/getstudents', [DefaultController::class, 'getStudents'])->name('student.marks.getStudents');
 });
