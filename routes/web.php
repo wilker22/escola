@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
+use App\Http\Controllers\Backend\Marks\MarksController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -228,12 +229,13 @@ Route::group(['middleware' => 'auth'], function () {
         
     });
 
-    //user profile and change password
+    //marks routs
     Route::prefix('marks')->group(function () {
         Route::get('marks/entry/add', [MarksController::class, 'marksAdd'])->name('marks.entry.add');
+        Route::post('marks/entry/store', [MarksController::class, 'marksStore'])->name('marks.entry.store');
        
     });
 
-    Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getSubject');
-    Route::get('student/marks/getstudents', [DefaultController::class, 'getStudents'])->name('student.marks.getStudents');
+    Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getsubject');
+    Route::get('student/marks/getstudents', [DefaultController::class, 'getStudents'])->name('student.marks.getstudents');
 });

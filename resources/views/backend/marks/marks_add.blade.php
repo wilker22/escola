@@ -15,7 +15,7 @@
                                 <h4 class="box-title">Aluno - <strong> Notas</strong></h4>
                             </div>
                             <div class="box-body">
-                                <form method="POST" action="{{ route('roll.generate.store') }}">
+                                <form method="POST" action="{{ route('marks.entry.store') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-3">
@@ -102,7 +102,7 @@
                                         </div> <!-- End Col md 3 -->
 
 
-                                        <div class="col-md-3" style="padding-top: 25px;">
+                                        <div class="col-md-3">
 
                                             <a id="search" class="btn btn-primary" name="search">Buscar</a>
 
@@ -120,7 +120,6 @@
                                                         <th>ID Nº</th>
                                                         <th>Nome do Aluno</th>
                                                         <th>Pai</th>
-                                                        <th>Mãe</th>
                                                         <th>Gênero</th>
                                                         <th>Notas</th>
                                                     </tr>
@@ -130,6 +129,8 @@
                                                 </tbody>
 
                                             </table>
+
+                                            <input type="submit" class="btn btn-rounded btn-primary" value="Cadastrar">
                                         </div>
                                     </div>
 
