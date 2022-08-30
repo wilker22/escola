@@ -233,6 +233,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::prefix('marks')->group(function () {
         Route::get('marks/entry/add', [MarksController::class, 'marksAdd'])->name('marks.entry.add');
         Route::post('marks/entry/store', [MarksController::class, 'marksStore'])->name('marks.entry.store');
+        Route::get('marks/entry/edit', [MarksController::class, 'marksEdit'])->name('marks.entry.edit');
+        Route::get('marks/getstudents/edit', [MarksController::class, 'marksEditGetstudents'])->name('student.edit.getstudents');
+        Route::post('marks/entry/update', [MarksController::class, 'marksUpdate'])->name('marks.entry.update');
        
     });
 

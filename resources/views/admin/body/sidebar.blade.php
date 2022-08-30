@@ -109,11 +109,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('employee.view') }}"><i class="ti-more"></i>Cadastrar Funcionários</a></li>
-            <li><a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Salário</a></li>
-            <li><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Licensas</a></li>
-            <li><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Comparecimento</a></li>
-            <li><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Salário Mensal</a></li>
+            <li class="{{ $route == 'employee.view' ? 'active' : '' }}><a href="{{ route('employee.view') }}"><i class="ti-more"></i>Cadastrar Funcionários</a></li>
+            <li class="{{ $route == 'employee.salary.view' ? 'active' : '' }}><a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Salário</a></li>
+            <li class="{{ $route == 'employee.leave.view' ? 'active' : '' }}><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Licensas</a></li>
+            <li class="{{ $route == 'employee.attendance.view' ? 'active' : '' }}><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Comparecimento</a></li>
+            <li class="{{ $route == 'employee.monthly.salary' ? 'active' : '' }}><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Salário Mensal</a></li>
             
             
           </ul>
@@ -127,7 +127,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('marks.entry.add') }}"><i class="ti-more"></i>Cadastrar Notas</a></li>
+            <li class="{{ $route == 'marks.entry.add' ? 'active' : '' }}"><a href="{{ route('marks.entry.add') }}"><i class="ti-more"></i>Cadastrar Notas</a></li>
+            <li class="{{ $route == 'marks.entry.edit' ? 'active' : '' }}><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Editar Notas</a></li>
             
             
             
