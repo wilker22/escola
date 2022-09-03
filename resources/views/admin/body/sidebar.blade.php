@@ -128,7 +128,8 @@
           </a>
           <ul class="treeview-menu">
             <li class="{{ $route == 'marks.entry.add' ? 'active' : '' }}"><a href="{{ route('marks.entry.add') }}"><i class="ti-more"></i>Cadastrar Notas</a></li>
-            <li class="{{ $route == 'marks.entry.edit' ? 'active' : '' }}><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Editar Notas</a></li>
+            <li class="{{ $route == 'marks.entry.edit' ? 'active' : '' }}"><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Editar Notas</a></li>
+            <li class="{{ $route == 'marks.entry.grade' ? 'active' : '' }}"><a href="{{ route('marks.entry.grade') }}"><i class="ti-more"></i>Grade de Notas</a></li>
             
             
             

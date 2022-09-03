@@ -49,7 +49,7 @@ class MarksController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function marksEdit($id)
+    public function marksEdit()
     {   
         $data['years'] = StudentYear::all();
         $data['classes'] = StudentClass::all();
