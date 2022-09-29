@@ -12,7 +12,7 @@
                     <div class="col-12">
                         <div class="box bb-3 border-warning">
                             <div class="box-header">
-                                <h4 class="box-title">Cadastrar - <strong> Taxas</strong></h4>
+                                <h4 class="box-title">Cadastrar - <strong> Pagamentos</strong></h4>
                             </div>
                             <div class="box-body">
 
@@ -126,6 +126,8 @@
                                                     @{{ /each }}
                                                 </tbody>
                                                 </table>
+
+                                                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Registrar</button>
                                             </form>
                                         </script>
 

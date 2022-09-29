@@ -15,7 +15,7 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Taxas de Alunos </h3>
+                                <h3 class="box-title">Pagamentos de Alunos </h3>
                                 <a href="{{ route('student.fee.add') }}" style="float: right;"
                                     class="btn btn-rounded btn-success mb-5"> Add / Editar Taxas</a>
 
@@ -32,7 +32,7 @@
                                                 <th>Ano</th>
                                                 <th>Turma</th>
                                                 <th>Tipo de Taxa</th>
-                                                <th>Soma</th>
+                                                <th>Valor</th>
                                                 <th>Data</th>
 
                                                 <th width="15%">Ações</th>
@@ -48,7 +48,7 @@
                                                     <td> {{ $value['stduent_year']['name'] }}</td>
                                                     <td> {{ $value['stduent_class']['name'] }}</td>
                                                     <td> {{ $value['fee_category']['name'] }}</td>
-                                                    <td> {{ $value->amount }}</td>
+                                                    <td> R$ {{ $value->amount }}</td>
                                                     <td> {{ date('M Y', strtotime($value->date)) }}</td>
 
                                                     <td>

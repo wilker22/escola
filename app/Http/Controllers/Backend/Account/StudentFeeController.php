@@ -66,17 +66,57 @@ class StudentFeeController extends Controller
             $discounttablefee = $discount / 100 * $originalfee;
             $finalfee = (float)$originalfee - (float)$discounttablefee;
 
-            $html[$key]['tdsource'] .= '<td>' . $finalfee . '$' . '</td>';
+            $html[$key]['tdsource'] .= '<td>' . $finalfee . 'R$' . '</td>';
             $html[$key]['tdsource'] .= '<td>';
             $html[$key]['tdsource'] .= '<a class="btn btn-sm btn-' . $color . '" title="PaySlip" target="_blanks" href="' . route("student.registration.fee.payslip") . '?class_id=' . $v->class_id . '&student_id=' . $v->student_id . '">Fee Slip</a>';
             $html[$key]['tdsource'] .= '</td>';
         }
-        return response()->json(@$html);
+        return response()->json($html);
     } // end method
 
 
 
-    public function studentFeeStore()
+    public function studentFeeStore(Request $request)
     {
+        $date = date('Y-m', strtotime($request->date));
+
+        AccountStudentFee::where('year_id', $request->year_id)
+                        ->where('class_id', $request->class_id)
+                        ->where('fee_category_id', $request->fee_category_id)
+                        ->where('date', $request->date)
+                        ->delete();
+        $checkdata = $request->checkmanage; //pega a checkbox selecionada
+
+        if($checkdata != null){
+            for ($i=0; $i<count($checkdata); $i++){
+                $data = new AccountStudentFee();
+                $data->year_id = $request->year_id;
+                $data->class_id = $request->class_id;
+                $data->date = $request->date;
+                $data->fee_category_id = $request->fee_category_id;
+                $data->student_id = $request->student_id[$checkdata[$i]];
+                $data->amount = $request->amount[$checkdata[$i]];
+                $data->save();
+            }
+
+
+        }
+
+        if(!empty($data) || empty($checkdata)){
+            $notification = [
+                'message' => 'Dados atualizados com sucesso',
+                'alert-type' => 'success'
+            ];
+
+            return redirect()->route('student.fee.view')->with($notification);
+        }else{
+            $notification = [
+                'message' => 'Não foi possível salvar os dados',
+                'alert-type' => 'error'
+            ];
+
+            return redirect()->back()->with($notification);
+        }
+
     }
 }

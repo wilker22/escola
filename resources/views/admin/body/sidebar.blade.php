@@ -138,13 +138,13 @@
 
         <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
             <a href="#">
-              <i data-feather="user-check"></i> <span>Gerenciar Contas</span>
+              <i data-feather="user-check"></i> <span>Pagamentos - Alunos</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ $route == 'student.fee.view' ? 'active' : '' }}"><a href="{{ route('student.fee.view') }}"><i class="ti-more"></i>Taxas dos Alunos</a></li>
+              <li class="{{ $route == 'student.fee.view' ? 'active' : '' }}"><a href="{{ route('student.fee.view') }}"><i class="ti-more"></i>Pagamentos dos Alunos</a></li>
 
 
 
