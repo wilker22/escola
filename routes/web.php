@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
@@ -251,12 +252,18 @@ Route::group(['middleware' => 'auth'], function () {
 
     });
 
-    //marks routs
+    //accounts(financeiro) routs
     Route::prefix('accounts')->group(function () {
+        //pagamentos de alunos
         Route::get('student/fee/view', [StudentFeeController::class, 'studentFeeView'])->name('student.fee.view');
         Route::get('student/fee/add', [StudentFeeController::class, 'studentFeeAdd'])->name('student.fee.add');
         Route::get('student/fee/getstudent', [StudentFeeController::class, 'studentFeeGetStudent'])->name('account.fee.getstudent');
-        Route::post('student/fee/store', [StudentFeeController::class, 'studentFeeStore'])->name('account.fee.store');    });
+        Route::post('student/fee/store', [StudentFeeController::class, 'studentFeeStore'])->name('account.fee.store');
+
+        //Salarios de Colaboradores
+        Route::get('account/salary/view', [AccountSalaryController::class, 'accountSalaryView'])->name('account.salary.view');
+
+    });
 
     Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getsubject');
     Route::get('student/marks/getstudents', [DefaultController::class, 'getStudents'])->name('student.marks.getstudents');
