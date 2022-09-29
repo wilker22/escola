@@ -7,30 +7,30 @@
 
 <aside class="main-sidebar">
     <!-- sidebar-->
-    <section class="sidebar">	
-		
+    <section class="sidebar">
+
         <div class="user-profile">
 			<div class="ulogo">
 				 <a href="index.html">
 				  <!-- logo for regular state and mobile devices -->
-					 <div class="d-flex align-items-center justify-content-center">					 	
+					 <div class="d-flex align-items-center justify-content-center">
 						  <img src="{{ asset('images/logo-dark.png') }}" alt="">
 						  <h3><b>Escola</b> WTech</h3>
 					 </div>
 				</a>
 			</div>
         </div>
-      
+
       <!-- sidebar menu-->
-      <ul class="sidebar-menu" data-widget="tree">  
-		  
+      <ul class="sidebar-menu" data-widget="tree">
+
 		<li class="{{ $route == 'dashboard' ? 'active' : '' }}">
           <a href="{{ route('dashboard') }}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
-        </li>  
-        
+        </li>
+
         @if(Auth::user()->role == 'Admin')
           <li class="treeview {{ $prefix == '/users' ? 'active' : '' }}">
             <a href="#">
@@ -46,7 +46,7 @@
             </ul>
           </li>
         @endif
-		  
+
         <li class="treeview {{ $prefix == '/profile' ? 'active' : '' }}">
           <a href="#">
             <i data-feather="info"></i> <span>Gerenciar Perfil</span>
@@ -57,7 +57,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ route('profile.view') }}"><i class="ti-more"></i>Seu Perfil</a></li>
             <li><a href="{{ route('password.view') }}"><i class="ti-more"></i>Gerenciamento de Senha</a></li>
-            
+
           </ul>
         </li>
 
@@ -70,16 +70,16 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Turmas</a></li>
-            <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Anos</a></li> 
-            <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Cursos</a></li>            
-            <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Turnos</a></li>            
-            <li><a href="{{ route('fee.cat.view') }}"><i class="ti-more"></i>Taxas - Categorias</a></li>   
-            <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Valores R$</a></li>            
-            <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exames(Provas) - Tipos</a></li>    
-            <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Disciplinas</a></li>    
-            <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Atribuir Notas às Disciplinas</a></li>    
-            <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Funções</a></li>    
-            
+            <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Anos</a></li>
+            <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Cursos</a></li>
+            <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Turnos</a></li>
+            <li><a href="{{ route('fee.cat.view') }}"><i class="ti-more"></i>Taxas - Categorias</a></li>
+            <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Taxas - Valores R$</a></li>
+            <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exames(Provas) - Tipos</a></li>
+            <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Disciplinas</a></li>
+            <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Atribuir Notas às Disciplinas</a></li>
+            <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Funções</a></li>
+
           </ul>
         </li>
 
@@ -96,8 +96,8 @@
             <li><a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Taxa de Matrícula</a></li>
             <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Taxa de Mensalidade</a></li>
             <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Taxa de Exames(Provas/testes)</a></li>
-                
-            
+
+
           </ul>
         </li>
 
@@ -114,8 +114,8 @@
             <li class="{{ $route == 'employee.leave.view' ? 'active' : '' }}><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Licensas</a></li>
             <li class="{{ $route == 'employee.attendance.view' ? 'active' : '' }}><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Comparecimento</a></li>
             <li class="{{ $route == 'employee.monthly.salary' ? 'active' : '' }}><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Salário Mensal</a></li>
-            
-            
+
+
           </ul>
         </li>
 
@@ -130,16 +130,33 @@
             <li class="{{ $route == 'marks.entry.add' ? 'active' : '' }}"><a href="{{ route('marks.entry.add') }}"><i class="ti-more"></i>Cadastrar Notas</a></li>
             <li class="{{ $route == 'marks.entry.edit' ? 'active' : '' }}"><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Editar Notas</a></li>
             <li class="{{ $route == 'marks.entry.grade' ? 'active' : '' }}"><a href="{{ route('marks.entry.grade') }}"><i class="ti-more"></i>Grade de Notas</a></li>
-            
-            
-            
+
+
+
           </ul>
         </li>
-		
-        
-		 
+
+        <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
+            <a href="#">
+              <i data-feather="user-check"></i> <span>Gerenciar Contas</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="{{ $route == 'student.fee.view' ? 'active' : '' }}"><a href="{{ route('student.fee.view') }}"><i class="ti-more"></i>Taxas dos Alunos</a></li>
+
+
+
+
+            </ul>
+          </li>
+
+
+
+
         <li class="header nav-small-cap">User Interface</li>
-		  
+
         <li class="treeview">
           <a href="#">
             <i data-feather="grid"></i>
@@ -159,14 +176,14 @@
             <li><a href="components_progress_bars.html"><i class="ti-more"></i>Progress Bars</a></li>
           </ul>
         </li>
-		
-		
-        </li>  
-		  
-	
+
+
+        </li>
+
+
       </ul>
     </section>
-	
+
 	<div class="sidebar-footer">
 		<!-- item-->
 		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
@@ -135,7 +136,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/exam/type/update/{id}', [ExamTypeController::class, 'examTypeUpdate'])->name('exam.type.update');
         Route::get('/exam/type/delete/{id}', [ExamTypeController::class, 'examTypeDelete'])->name('exam.type.delete');
 
-        // School Subject All Routes 
+        // School Subject All Routes
         Route::get('school/subject/view', [SchoolSubjectController::class, 'viewSubject'])->name('school.subject.view');
         Route::get('school/subject/add', [SchoolSubjectController::class, 'subjectAdd'])->name('school.subject.add');
         Route::post('school/subject/store', [SchoolSubjectController::class, 'subjectStore'])->name('store.school.subject');
@@ -222,12 +223,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('attendance/employee/edit/{date}', [EmployeeAttendanceController::class, 'attendanceEdit'])->name('employee.attendance.edit');
         Route::get('attendance/employee/details/{date}', [EmployeeAttendanceController::class, 'attendanceUpdate'])->name('employee.attendance.details');
 
-        //Monthly Salary 
+        //Monthly Salary
         Route::get('monthly/salary/view', [MonthlySalaryController::class, 'monthlySalaryView'])->name('employee.monthly.salary');
         Route::get('monthly/salary/get', [MonthlySalaryController::class, 'monthlySalaryGet'])->name('employee.monthly.salary.get');
-        
-        
-        
+
+
+
     });
 
     //marks routs
@@ -243,9 +244,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('marks/grade/add', [GradeController::class, 'marksGradeAdd'])->name('marks.grade.add');
         Route::get('marks/grade/edit/{id}', [GradeController::class, 'marksGradeEdit'])->name('marks.grade.edit');
         Route::post('marks/grade/update/{id}', [GradeController::class, 'marksGradeUpdate'])->name('update.marks.grade');
-        Route::post('marks/grade/store/', [GradeController::class, 'marksGradeStore'])->name('marks.grade.store');
+        Route::post('marks/grade/store/', [GradeController::class, 'studentFeeView'])->name('marks.grade.store');
+
+
+
 
     });
+
+    //marks routs
+    Route::prefix('accounts')->group(function () {
+        Route::get('student/fee/view', [StudentFeeController::class, 'studentFeeView'])->name('student.fee.view');
+        Route::get('student/fee/add', [StudentFeeController::class, 'studentFeeAdd'])->name('student.fee.add');
+        Route::get('student/fee/getstudent', [StudentFeeController::class, 'studentFeeGetStudent'])->name('account.fee.getstudent');
+        Route::post('student/fee/store', [StudentFeeController::class, 'studentFeeStore'])->name('account.fee.store');    });
 
     Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getsubject');
     Route::get('student/marks/getstudents', [DefaultController::class, 'getStudents'])->name('student.marks.getstudents');
