@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\Account\AccountSalaryController;
+use App\Http\Controllers\Backend\Account\OtherCostController;
 use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
@@ -227,9 +228,6 @@ Route::group(['middleware' => 'auth'], function () {
         //Monthly Salary
         Route::get('monthly/salary/view', [MonthlySalaryController::class, 'monthlySalaryView'])->name('employee.monthly.salary');
         Route::get('monthly/salary/get', [MonthlySalaryController::class, 'monthlySalaryGet'])->name('employee.monthly.salary.get');
-
-
-
     });
 
     //marks routs
@@ -246,10 +244,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('marks/grade/edit/{id}', [GradeController::class, 'marksGradeEdit'])->name('marks.grade.edit');
         Route::post('marks/grade/update/{id}', [GradeController::class, 'marksGradeUpdate'])->name('update.marks.grade');
         Route::post('marks/grade/store/', [GradeController::class, 'studentFeeView'])->name('marks.grade.store');
-
-
-
-
     });
 
     //accounts(financeiro) routs
@@ -266,6 +260,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('account/salary/getemployee', [AccountSalaryController::class, 'accountSalaraGetEmployee'])->name('account.salary.getemployee');
         Route::post('account/salary/store', [AccountSalaryController::class, 'accountSalaryStore'])->name('account.salary.store');
 
+        //Outros custos
+        Route::get('other/cost/view', [OtherCostController::class, 'otherCostView'])->name('other.cost.view');
+        Route::get('other/cost/add', [OtherCostController::class, 'otherCostAdd'])->name('other.cost.add');
+        Route::post('other/cost/store', [OtherCostController::class, 'otherCostStore'])->name('store.other.cost');
+        Route::get('other/cost/edit/{id}', [OtherCostController::class, 'otherCostEdit'])->name('edit.other.cost');
+        Route::post('other/cost/update/{id}', [OtherCostController::class, 'otherCostUpdate'])->name('update.other.cost');
     });
 
     Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getsubject');
