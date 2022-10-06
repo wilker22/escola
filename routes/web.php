@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\Marks\GradeController;
 use App\Http\Controllers\Backend\Marks\MarksController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Report\ProfitController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -267,6 +268,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('other/cost/edit/{id}', [OtherCostController::class, 'otherCostEdit'])->name('edit.other.cost');
         Route::post('other/cost/update/{id}', [OtherCostController::class, 'otherCostUpdate'])->name('update.other.cost');
     });
+
+     //Relatórios  routs
+     Route::prefix('reports')->group(function () {
+        Route::get('monthly/profit/view', [ProfitController::class, 'monthlyProfitView'])->name('monthly.profit.view');
+        Route::get('monthly/profit/datewais', [ProfitController::class, 'monthlyProfitDatewais'])->name('report.profit.datewais.get');
+        Route::get('monthly/profit/pdf', [ProfitController::class, 'monthlyProfitPdf'])->name('report.profit.pdf');
+     });
 
     Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getsubject');
     Route::get('student/marks/getstudents', [DefaultController::class, 'getStudents'])->name('student.marks.getstudents');
