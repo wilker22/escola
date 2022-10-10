@@ -163,7 +163,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ $route == 'student.fee.view' ? 'active' : '' }}"><a href="{{ route('monthly.profit.view') }}"><i class="ti-more"></i>Lucro - Mensal/Anual</a></li>
+                <li class="{{ ($route == 'monthly.profit.view')?'active':'' }}"><a href="{{ route('monthly.profit.view') }}"><i class="ti-more"></i>Lucro - Mensal/Anula</a></li>
+
 
             </ul>
           </li>

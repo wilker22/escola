@@ -16,7 +16,7 @@
                     <div class="col-12">
                         <div class="box bb-3 border-warning">
                             <div class="box-header">
-                                <h4 class="box-title">Gestão - <strong>Lucro Mensal/Anual</strong></h4>
+                                <h4 class="box-title">Gestão <strong>Lucro - Mensal/Anual</strong></h4>
                             </div>
 
                             <div class="box-body">
@@ -31,12 +31,14 @@
                                         <div class="form-group">
                                             <h5>Data Inicial <span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <input type="date" name="start_date" id="start_date" class="form-control">
+                                                <input type="date" name="start_date" id="start_date"
+                                                    class="form-control">
                                             </div>
 
                                         </div>
 
                                     </div> <!-- End Col md 4 -->
+
 
                                     <div class="col-md-4">
 
@@ -80,7 +82,8 @@
  	 <tbody>
 
  	 	<tr>
- 	 		@{{ {tdsource } }}
+ 	 		@{{ {
+    tdsource }}}
  	 	</tr>
 
  	 </tbody>
@@ -110,8 +113,8 @@
 
     <script type="text/javascript">
         $(document).on('click', '#search', function() {
-            var date = $('#start_date').val();
-            var date = $('#end_date').val();
+            var start_date = $('#start_date').val();
+            var end_date = $('#end_date').val();
             $.ajax({
                 url: "{{ route('report.profit.datewais.get') }}",
                 type: "get",
