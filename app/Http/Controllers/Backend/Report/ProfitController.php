@@ -56,7 +56,6 @@ class ProfitController extends Controller
 
     } // end method
 
-
     public function MonthlyProfitPdf(Request $request){
 
     	 $data['start_date'] = date('Y-m',strtotime($request->start_date));
