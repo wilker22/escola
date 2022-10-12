@@ -164,6 +164,7 @@
             </a>
             <ul class="treeview-menu">
                 <li class="{{ ($route == 'monthly.profit.view')?'active':'' }}"><a href="{{ route('monthly.profit.view') }}"><i class="ti-more"></i>Lucro - Mensal/Anula</a></li>
+                <li class="{{ ($route == 'marksheet.generate.view')?'active':'' }}"><a href="{{ route('marksheet.generate.view') }}"><i class="ti-more"></i>Boletim de Notas</a></li>
 
 
             </ul>

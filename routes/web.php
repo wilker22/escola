@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\Marks\GradeController;
 use App\Http\Controllers\Backend\Marks\MarksController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Report\MarkSheetController;
 use App\Http\Controllers\Backend\Report\ProfitController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -274,6 +275,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('monthly/profit/view', [ProfitController::class, 'monthlyProfitView'])->name('monthly.profit.view');
         Route::get('monthly/profit/datewais', [ProfitController::class, 'monthlyProfitDatewais'])->name('report.profit.datewais.get');
         Route::get('monthly/profit/pdf', [ProfitController::class, 'monthlyProfitPdf'])->name('report.profit.pdf');
+
+        //MARKSHEET ROUTE
+        Route::get('marksheet/generate/view', [MarkSheetController::class, 'marksheetView'])->name('marksheet.generate.view');
+        Route::get('marksheet/generate/get', [MarkSheetController::class, 'marksheetGet'])->name('report.marksheet.get');
      });
 
     Route::get('marks/getsubject', [DefaultController::class, 'getSubject'])->name('marks.getsubject');
